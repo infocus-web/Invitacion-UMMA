@@ -39,14 +39,21 @@
   .wrap{max-width:920px;margin:0 auto;text-align:center;}
   .divider{width:60px;height:1px;background:var(--gold);margin:24px auto;opacity:.6;}
 
+  /* PARALLAX */
+  .parallax{position:relative;overflow:hidden;}
+  .parallax .parallax-img{
+    position:absolute;left:0;right:0;top:-15%;height:130%;
+    background-size:cover;background-position:center;will-change:transform;z-index:0;
+  }
+  .parallax .parallax-overlay{position:absolute;inset:0;background:rgba(128,128,128,.6);z-index:1;}
+
   /* HERO */
   .hero{
     min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:40px 24px;background:
-      radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.08), transparent 60%),
-      linear-gradient(180deg,#808080 0%, #7a7a7a 100%);
+    text-align:center;padding:40px 24px;
     border-bottom:1px solid var(--line);
   }
+  .hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;}
   .hero .pre{font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text-dim);margin-bottom:18px;}
   .hero .name-script{font-family:'Great Vibes',cursive;font-size:5rem;color:var(--gold-soft);line-height:1;}
   .hero h1{font-size:1.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--text);margin-top:10px;}
@@ -197,13 +204,17 @@
 <button type="button" class="music-toggle" id="musicToggle" aria-label="Pausar musica">🎵</button>
 
 <!-- HERO -->
-<section class="hero" id="top">
-  <div class="pre">Bienvenidos a la invitación de</div>
-  <div class="name-script">Uma</div>
-  <h1>Mis XV Años</h1>
-  <div class="date-badge">11 · 10 · 2026 — Del Viso, Buenos Aires</div>
-  <a href="#detalles" class="btn">Ingresar a la invitación</a>
-  <div class="scroll-cue">↓</div>
+<section class="hero parallax" id="top">
+  <div class="parallax-img" style="background-image:url('images/uma-01.jpg')"></div>
+  <div class="parallax-overlay"></div>
+  <div class="hero-content">
+    <div class="pre">Bienvenidos a la invitación de</div>
+    <div class="name-script">Uma</div>
+    <h1>Mis XV Años</h1>
+    <div class="date-badge">11 · 10 · 2026 — Del Viso, Buenos Aires</div>
+    <a href="#detalles" class="btn">Ingresar a la invitación</a>
+    <div class="scroll-cue">↓</div>
+  </div>
 </section>
 
 <!-- LEAD / NAME BLOCK -->
@@ -490,6 +501,22 @@
     toggle.addEventListener('click', function(){
       if(audio.paused){ audio.play(); } else { audio.pause(); }
     });
+  })();
+
+  // PARALLAX
+  (function(){
+    var layers = document.querySelectorAll('.parallax-img');
+    if(!layers.length) return;
+    var speed = 0.35;
+    function update(){
+      layers.forEach(function(el){
+        var rect = el.parentElement.getBoundingClientRect();
+        el.style.transform = 'translateY(' + (rect.top * speed) + 'px)';
+      });
+    }
+    window.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    update();
   })();
 </script>
 
