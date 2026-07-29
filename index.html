@@ -511,7 +511,7 @@
     function update(){
       layers.forEach(function(el){
         var rect = el.parentElement.getBoundingClientRect();
-        el.style.transform = 'translateY(' + (rect.top * speed) + 'px)';
+        el.style.transform = 'translateY(' + (-rect.top * speed) + 'px)';
       });
     }
     window.addEventListener('scroll', update, {passive:true});
