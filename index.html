@@ -178,9 +178,11 @@
   .gate-buttons{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
   .gate-buttons button{font-family:'Montserrat',sans-serif;}
 
-  /* VINYL ICON */
-  .vinyl-spin{animation:vinylspin 3.5s linear infinite;flex-shrink:0;}
-  @keyframes vinylspin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  /* SPEAKER ICON */
+  .speaker-icon{flex-shrink:0;}
+  .speaker-icon .wave{animation:wavepulse 1.4s ease-in-out infinite;}
+  .speaker-icon .wave2{animation-delay:.25s;}
+  @keyframes wavepulse{0%,100%{opacity:.15;}50%{opacity:1;}}
 
   /* MUSIC TOGGLE */
   .music-toggle{
@@ -365,22 +367,16 @@
   <div class="wrap panel">
     <span class="eyebrow">Ayudanos a armar la playlist</span>
     <h2 style="font-size:2.2rem;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;">
-      <svg class="vinyl-spin" width="42" height="42" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="48" fill="#1a1a1a"/>
-        <circle cx="50" cy="50" r="48" fill="none" stroke="var(--gold-soft)" stroke-width="1" opacity="0.5"/>
-        <circle cx="50" cy="50" r="38" fill="none" stroke="var(--gold-soft)" stroke-width="1" opacity="0.35"/>
-        <circle cx="50" cy="50" r="28" fill="none" stroke="var(--gold-soft)" stroke-width="1" opacity="0.35"/>
-        <circle cx="50" cy="50" r="16" fill="var(--gold)"/>
-        <circle cx="50" cy="50" r="3.5" fill="#1a1a1a"/>
+      <svg class="speaker-icon" width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 9v6h4l5 5V4L7 9H3z" fill="var(--gold)"/>
+        <path class="wave wave1" d="M14.5 8.5a5 5 0 0 1 0 7" stroke="var(--gold-soft)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <path class="wave wave2" d="M17.3 6a9 9 0 0 1 0 12" stroke="var(--gold-soft)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
       </svg>
       Sugerí una canción
-      <svg class="vinyl-spin" width="42" height="42" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="48" fill="#1a1a1a"/>
-        <circle cx="50" cy="50" r="48" fill="none" stroke="var(--gold-soft)" stroke-width="1" opacity="0.5"/>
-        <circle cx="50" cy="50" r="38" fill="none" stroke="var(--gold-soft)" stroke-width="1" opacity="0.35"/>
-        <circle cx="50" cy="50" r="28" fill="none" stroke="var(--gold-soft)" stroke-width="1" opacity="0.35"/>
-        <circle cx="50" cy="50" r="16" fill="var(--gold)"/>
-        <circle cx="50" cy="50" r="3.5" fill="#1a1a1a"/>
+      <svg class="speaker-icon" width="40" height="40" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 9v6h4l5 5V4L7 9H3z" fill="var(--gold)"/>
+        <path class="wave wave1" d="M14.5 8.5a5 5 0 0 1 0 7" stroke="var(--gold-soft)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <path class="wave wave2" d="M17.3 6a9 9 0 0 1 0 12" stroke="var(--gold-soft)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
       </svg>
     </h2>
     <p style="margin-top:14px;">¿Cuál es el tema que no puede faltar esa noche?</p>
