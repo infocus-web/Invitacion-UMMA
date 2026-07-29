@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Uma · Mis XV Años</title>
+<meta name="description" content="Invitación a los XV años de Uma - 11 de Octubre 2026" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0a0b;
+    --bg-soft: #131315;
+    --card: #1a1a1d;
+    --gold: #c7cad1;
+    --gold-soft: #ffffff;
+    --silver: #b8bcc4;
+    --text: #f5f5f7;
+    --text-dim: #a3a7ae;
+    --line: rgba(255,255,255,0.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Montserrat',sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.script{font-family:'Cormorant Garamond',serif;font-weight:500;}
+  .script{font-family:'Great Vibes',cursive;font-weight:400;}
+  .eyebrow{
+    letter-spacing:.25em;text-transform:uppercase;font-size:.72rem;
+    color:var(--gold);margin-bottom:14px;display:inline-block;
+  }
+  section{padding:100px 24px;position:relative;}
+  .wrap{max-width:920px;margin:0 auto;text-align:center;}
+  .divider{width:60px;height:1px;background:var(--gold);margin:24px auto;opacity:.6;}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:40px 24px;background:
+      radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.08), transparent 60%),
+      linear-gradient(180deg,#0a0a0b 0%, #08080a 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero .pre{font-size:.85rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text-dim);margin-bottom:18px;}
+  .hero .name-script{font-family:'Great Vibes',cursive;font-size:5rem;color:var(--gold-soft);line-height:1;}
+  .hero h1{font-size:1.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--text);margin-top:10px;}
+  .hero .date-badge{
+    margin-top:34px;font-size:.85rem;letter-spacing:.15em;color:var(--gold);
+    border:1px solid var(--line);padding:10px 22px;border-radius:30px;
+  }
+  .btn{
+    display:inline-block;margin-top:40px;padding:14px 34px;border:1px solid var(--gold);
+    color:var(--gold-soft);text-decoration:none;letter-spacing:.15em;text-transform:uppercase;
+    font-size:.78rem;border-radius:2px;transition:all .3s ease;background:transparent;cursor:pointer;font-family:'Montserrat',sans-serif;
+  }
+  .btn:hover{background:var(--gold);color:#0a0a0b;}
+  .btn.solid{background:var(--gold);color:#0a0a0b;}
+  .btn.solid:hover{background:var(--gold-soft);}
+  .scroll-cue{margin-top:60px;color:var(--text-dim);font-size:.8rem;letter-spacing:.1em;}
+
+  /* MAIN NAME BLOCK */
+  .lead{padding-top:120px;}
+  .lead .num-date{font-size:.85rem;letter-spacing:.35em;color:var(--gold);margin-bottom:24px;}
+  .lead .name-big{font-size:4.2rem;color:var(--text);}
+  .lead .sub{font-size:1.4rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-top:6px;}
+  .lead p{max-width:560px;margin:34px auto 0;color:var(--text-dim);font-size:1.05rem;line-height:1.8;font-weight:300;}
+
+  /* COUNTDOWN */
+  .countdown-wrap{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .count-grid{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:36px;}
+  .count-box{
+    background:var(--card);border:1px solid var(--line);border-radius:6px;
+    width:110px;padding:22px 0;
+  }
+  .count-box .num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--gold-soft);}
+  .count-box .lbl{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-top:6px;}
+
+  /* DETAILS CARDS */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:50px;}
+  @media(max-width:800px){.cards{grid-template-columns:1fr;}}
+  .card{
+    background:var(--card);border:1px solid var(--line);padding:42px 26px;border-radius:8px;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .card .mark{color:var(--gold);font-size:1.4rem;margin-bottom:14px;}
+  .card h3{font-size:1.5rem;color:var(--text);margin-bottom:12px;}
+  .card p{color:var(--text-dim);line-height:1.7;font-size:.95rem;}
+  .card a.linklike{margin-top:20px;color:var(--gold-soft);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--gold-soft);padding-bottom:2px;}
+
+  /* RSVP */
+  form.rsvp{max-width:480px;margin:46px auto 0;text-align:left;display:flex;flex-direction:column;gap:20px;}
+  form.rsvp label{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block;}
+  form.rsvp input, form.rsvp textarea{
+    width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);
+    color:var(--text);padding:10px 2px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:300;
+  }
+  form.rsvp input:focus, form.rsvp textarea:focus{outline:none;border-bottom-color:var(--gold);}
+  form.rsvp textarea{resize:vertical;min-height:70px;}
+  form.rsvp .btn{align-self:center;margin-top:12px;background:none;}
+
+  /* CAROUSEL */
+  .carousel{
+    position:relative;max-width:640px;margin:50px auto 0;border-radius:8px;overflow:hidden;
+    border:1px solid var(--line);background:var(--card);
+  }
+  .carousel-track{display:flex;transition:transform .5s ease;}
+  .carousel-track img{width:100%;flex:0 0 100%;display:block;aspect-ratio:3/2;object-fit:cover;cursor:zoom-in;}
+  .carousel-btn{
+    position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,10,11,.55);
+    color:var(--gold-soft);border:1px solid var(--line);width:40px;height:40px;border-radius:50%;
+    cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;
+  }
+  .carousel-btn.prev{left:14px;}
+  .carousel-btn.next{right:14px;}
+  .carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:18px;}
+  .carousel-dots span{
+    width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .2s ease;
+  }
+  .carousel-dots span.active{background:var(--gold-soft);}
+  .lightbox{
+    position:fixed;inset:0;background:rgba(10,12,16,.94);display:none;
+    align-items:center;justify-content:center;z-index:999;padding:30px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:100%;max-height:90vh;border-radius:6px;border:1px solid var(--line);}
+  .lightbox .close{position:absolute;top:24px;right:32px;color:var(--gold-soft);font-size:2rem;cursor:pointer;line-height:1;}
+
+  /* DRESS CODE */
+  .palette{display:flex;justify-content:center;gap:22px;margin-top:44px;flex-wrap:wrap;}
+  .swatch{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .swatch .dot{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);}
+  .swatch span{font-size:.75rem;letter-spacing:.1em;color:var(--text-dim);text-transform:uppercase;}
+
+  /* TIPS */
+  ul.tips{list-style:none;max-width:560px;margin:40px auto 0;text-align:left;display:flex;flex-direction:column;gap:16px;}
+  ul.tips li{position:relative;padding-left:26px;color:var(--text-dim);line-height:1.7;font-size:.98rem;}
+  ul.tips li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:.85rem;top:2px;}
+
+  /* MUSIC / GIFTS */
+  .panel{max-width:560px;margin:0 auto;}
+  .panel p{color:var(--text-dim);line-height:1.8;margin-bottom:30px;}
+
+  footer{
+    text-align:center;padding:70px 24px 40px;border-top:1px solid var(--line);background:var(--bg-soft);
+  }
+  footer .name-script{font-family:'Great Vibes',cursive;font-size:2.6rem;color:var(--gold-soft);}
+  footer .sub{letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;color:var(--text-dim);margin-top:4px;}
+  footer nav{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:34px 0;}
+  footer nav a{color:var(--gold-soft);text-decoration:none;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;}
+  footer .credit{margin-top:24px;color:var(--text-dim);font-size:.78rem;}
+
+  .rsvp-note{font-size:.78rem;color:var(--text-dim);margin-top:16px;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="pre">Bienvenidos a la invitación de</div>
+  <div class="name-script">Uma</div>
+  <h1>Mis XV Años</h1>
+  <div class="date-badge">11 · 10 · 2026 — Del Viso, Buenos Aires</div>
+  <a href="#detalles" class="btn">Ingresar a la invitación</a>
+  <div class="scroll-cue">↓</div>
+</section>
+
+<!-- LEAD / NAME BLOCK -->
+<section class="lead">
+  <div class="wrap">
+    <div class="num-date">11 . 10 . 2026</div>
+    <div class="name-big script">Uma</div>
+    <div class="sub">Mis XV Años</div>
+    <p>Te espero para compartir la alegría de esa noche que será, para mí, mágica, inolvidable y única.</p>
+    <a href="#detalles" class="btn" style="margin-top:34px;">Descubrí los detalles ↓</a>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown-wrap">
+  <div class="wrap">
+    <span class="eyebrow">Faltan solo</span>
+    <h2 style="font-size:2rem;">Cuenta regresiva</h2>
+    <div class="count-grid">
+      <div class="count-box"><div class="num" id="cd-days">00</div><div class="lbl">Días</div></div>
+      <div class="count-box"><div class="num" id="cd-hours">00</div><div class="lbl">Horas</div></div>
+      <div class="count-box"><div class="num" id="cd-mins">00</div><div class="lbl">Min</div></div>
+      <div class="count-box"><div class="num" id="cd-secs">00</div><div class="lbl">Seg</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section id="detalles">
+  <div class="wrap">
+    <span class="eyebrow">Los detalles</span>
+    <h2 style="font-size:2.2rem;">La Fiesta</h2>
+    <p style="color:var(--text-dim);margin-top:10px;">Domingo 11 de Octubre · 21:00 hs</p>
+    <div class="cards">
+      <div class="card">
+        <div class="mark">✦</div>
+        <h3>Día</h3>
+        <p>Domingo 11 de Octubre<br/>21:00 hs</p>
+        <a class="linklike" target="_blank" rel="noopener" href="https://www.google.com/calendar/render?action=TEMPLATE&text=XV+A%C3%B1os+de+Uma&dates=20261011T210000/20261012T030000&location=Florida+6150%2C+Del+Viso%2C+Buenos+Aires&details=Fiesta+de+15+a%C3%B1os+de+Uma">Agendar</a>
+      </div>
+      <div class="card">
+        <div class="mark">✦</div>
+        <h3>Lugar</h3>
+        <p>Los Jazmines Casona</p>
+        <a class="linklike" href="#rsvp">Confirmar asistencia</a>
+      </div>
+      <div class="card">
+        <div class="mark">✦</div>
+        <h3>Dirección</h3>
+        <p>Florida 6150, B1669GLY<br/>Del Viso, Buenos Aires</p>
+        <a class="linklike" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Florida+6150+Del+Viso+Buenos+Aires">¿Cómo llegar?</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <span class="eyebrow">Tu presencia es un regalo</span>
+    <h2 style="font-size:2.2rem;">Confirmá tu asistencia</h2>
+    <p style="color:var(--text-dim);margin-top:14px;">Es muy importante para mí saber que vas a acompañarme esa noche.</p>
+    <form class="rsvp" id="rsvpForm">
+      <div>
+        <label>Nombre y apellido</label>
+        <input type="text" id="rsvpName" required />
+      </div>
+      <div>
+        <label>Cantidad de personas</label>
+        <input type="number" id="rsvpQty" min="1" value="1" required />
+      </div>
+      <div>
+        <label>Mensaje para Uma (opcional)</label>
+        <textarea id="rsvpMsg"></textarea>
+      </div>
+      <button type="submit" class="btn solid">Enviar confirmación</button>
+      <div class="rsvp-note">Se abrirá WhatsApp con tu confirmación lista para enviar.</div>
+    </form>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <div class="wrap" style="max-width:1000px;">
+    <span class="eyebrow">Un recorrido</span>
+    <h2 style="font-size:2.2rem;">15 años en fotos</h2>
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="carouselTrack">
+        <img src="images/uma-01.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-02.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-03.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-04.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-05.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-06.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-07.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-08.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-09.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-10.jpg" alt="Uma" loading="lazy"/>
+        <img src="images/uma-11.jpg" alt="Uma" loading="lazy"/>
+      </div>
+      <span class="carousel-btn prev" id="carouselPrev">&#10094;</span>
+      <span class="carousel-btn next" id="carouselNext">&#10095;</span>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</section>
+<div class="lightbox" id="lightbox">
+  <span class="close" id="lightboxClose">&times;</span>
+  <img id="lightboxImg" src="" alt="Uma" />
+</div>
+
+<!-- DRESS CODE -->
+<section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <span class="eyebrow">Para esa noche</span>
+    <h2 style="font-size:2.2rem;">Código de vestimenta</h2>
+    <p style="color:var(--text-dim);margin-top:10px;">Elegante noche, en tonos que acompañen la paleta de la fiesta.</p>
+    <div class="palette">
+      <div class="swatch"><div class="dot" style="background:#1b2a4a;"></div><span>Azul marino</span></div>
+      <div class="swatch"><div class="dot" style="background:#8a8f98;"></div><span>Gris</span></div>
+      <div class="swatch"><div class="dot" style="background:#c7cad1;"></div><span>Plata</span></div>
+      <div class="swatch"><div class="dot" style="background:#111318;"></div><span>Negro</span></div>
+      <div class="swatch"><div class="dot" style="background:#f3f2ee;"></div><span>Blanco</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Antes de venir</span>
+    <h2 style="font-size:2.2rem;">Tips y notas</h2>
+    <ul class="tips">
+      <li>La fiesta es para mayores de 12 años.</li>
+      <li>Hay estacionamiento disponible en el lugar.</li>
+      <li>Por favor confirmá tu asistencia antes del 20 de septiembre.</li>
+      <li>Cualquier consulta, escribinos por WhatsApp.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap panel">
+    <span class="eyebrow">Ayudanos a armar la playlist</span>
+    <h2 style="font-size:2.2rem;">Sugerí una canción</h2>
+    <p style="margin-top:14px;">¿Cuál es el tema que no puede faltar esa noche?</p>
+    <a class="btn" target="_blank" rel="noopener" href="https://wa.me/5491130859902?text=%C2%A1Hola!%20Quiero%20sugerir%20una%20canci%C3%B3n%20para%20la%20fiesta%20de%20Uma%3A%20">Sugerir canción</a>
+  </div>
+</section>
+
+<!-- GIFTS -->
+<section id="regalos">
+  <div class="wrap panel">
+    <span class="eyebrow">Un gesto opcional</span>
+    <h2 style="font-size:2.2rem;">Regalos</h2>
+    <p style="margin-top:14px;">Si deseas regalarme algo más que tu hermosa presencia, un sobre será de gran ayuda para comenzar esta nueva etapa.</p>
+    <div class="card" style="max-width:340px;margin:20px auto 0;">
+      <div class="mark">✦</div>
+      <h3 style="font-size:1.2rem;">Datos para transferencia</h3>
+      <p style="font-size:.9rem;">Alias: umaceleste.mp<br/>CVU: 0000003100096362414096<br/>Titular: Uma Celeste Sanabria</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="name-script">Uma</div>
+  <div class="sub">Mis XV Años</div>
+  <nav>
+    <a href="#rsvp">Confirmar asistencia</a>
+    <a href="#musica">Sugerir canción</a>
+    <a href="#detalles">Agendar fiesta</a>
+  </nav>
+  <div class="credit">Hecho con ♥ para Uma</div>
+</footer>
+
+<script>
+  // Countdown
+  const target = new Date("2026-10-11T21:00:00-03:00").getTime();
+  function tick(){
+    const now = Date.now();
+    let diff = target - now;
+    if(diff < 0) diff = 0;
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // RSVP -> WhatsApp
+  document.getElementById('rsvpForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('rsvpName').value.trim();
+    const qty = document.getElementById('rsvpQty').value.trim();
+    const msg = document.getElementById('rsvpMsg').value.trim();
+    let text = `¡Hola! Confirmo mi asistencia a los XV de Uma.%0ANombre: ${encodeURIComponent(name)}%0APersonas: ${encodeURIComponent(qty)}`;
+    if(msg){ text += `%0AMensaje: ${encodeURIComponent(msg)}`; }
+    window.open(`https://wa.me/5491130859902?text=${text}`, '_blank');
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.getElementById('carouselTrack').addEventListener('click', function(e){
+    if(e.target.tagName === 'IMG'){
+      lightboxImg.src = e.target.src;
+      lightbox.classList.add('open');
+    }
+  });
+  document.getElementById('lightboxClose').addEventListener('click', function(){
+    lightbox.classList.remove('open');
+  });
+  lightbox.addEventListener('click', function(e){
+    if(e.target === lightbox){ lightbox.classList.remove('open'); }
+  });
+
+  // Carousel
+  (function(){
+    const track = document.getElementById('carouselTrack');
+    const slides = track.children.length;
+    const dotsWrap = document.getElementById('carouselDots');
+    let idx = 0;
+    for(let i=0;i<slides;i++){
+      const dot = document.createElement('span');
+      if(i===0) dot.classList.add('active');
+      dot.addEventListener('click', function(){ goTo(i); });
+      dotsWrap.appendChild(dot);
+    }
+    function update(){
+      track.style.transform = 'translateX(-' + (idx*100) + '%)';
+      [...dotsWrap.children].forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+    }
+    function goTo(i){ idx = (i+slides)%slides; update(); }
+    document.getElementById('carouselPrev').addEventListener('click', function(){ goTo(idx-1); });
+    document.getElementById('carouselNext').addEventListener('click', function(){ goTo(idx+1); });
+    let autoplay = setInterval(function(){ goTo(idx+1); }, 4500);
+    const carouselEl = document.getElementById('carousel');
+    carouselEl.addEventListener('mouseenter', function(){ clearInterval(autoplay); });
+    carouselEl.addEventListener('mouseleave', function(){ autoplay = setInterval(function(){ goTo(idx+1); }, 4500); });
+    // swipe support
+    let startX = null;
+    track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', function(e){
+      if(startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if(Math.abs(dx) > 40){ dx > 0 ? goTo(idx-1) : goTo(idx+1); }
+      startX = null;
+    });
+  })();
+</script>
+
+</body>
+</html>
