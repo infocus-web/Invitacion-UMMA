@@ -184,6 +184,21 @@
   .speaker-icon .wave2{animation-delay:.25s;}
   @keyframes wavepulse{0%,100%{opacity:.15;}50%{opacity:1;}}
 
+  /* HANGER ICON */
+  .hanger-icon{flex-shrink:0;}
+  .hanger-icon .hanger-swing{animation:hangerswing 2.2s ease-in-out infinite;transform-origin:50% 17%;}
+  @keyframes hangerswing{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}
+
+  /* BULB ICON */
+  .bulb-icon{flex-shrink:0;}
+  .bulb-icon .glow{animation:bulbglow 1.8s ease-out infinite;transform-origin:50% 42%;}
+  @keyframes bulbglow{0%{transform:scale(.7);opacity:.8;}100%{transform:scale(1.3);opacity:0;}}
+
+  /* GIFT ICON */
+  .gift-icon{flex-shrink:0;}
+  .gift-icon .gift-bounce{animation:giftbounce 1.6s ease-in-out infinite;}
+  @keyframes giftbounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+
   /* MUSIC TOGGLE */
   .music-toggle{
     position:fixed;bottom:22px;right:22px;z-index:500;width:48px;height:48px;border-radius:50%;
@@ -336,7 +351,17 @@
 <section style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
   <div class="wrap">
     <span class="eyebrow">Para esa noche</span>
-    <h2 style="font-size:2.2rem;">Código de vestimenta</h2>
+    <h2 style="font-size:2.2rem;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+      <svg class="hanger-icon" width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+        <g class="hanger-swing">
+          <circle cx="12" cy="4" r="1.6" fill="none" stroke="var(--gold)" stroke-width="1.4"/>
+          <path d="M12 5.5v1.5" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M3 17l9-6 9 6" fill="none" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3 17h18" stroke="var(--gold)" stroke-width="1.6" stroke-linecap="round"/>
+        </g>
+      </svg>
+      Código de vestimenta
+    </h2>
     <p style="color:var(--text-dim);margin-top:10px;">Elegante noche, en tonos que acompañen la paleta de la fiesta.</p>
     <div class="palette">
       <div class="swatch"><div class="dot" style="background:#1b2a4a;"></div><span>Azul marino</span></div>
@@ -352,7 +377,15 @@
 <section>
   <div class="wrap">
     <span class="eyebrow">Antes de venir</span>
-    <h2 style="font-size:2.2rem;">Tips y notas</h2>
+    <h2 style="font-size:2.2rem;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+      <svg class="bulb-icon" width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+        <circle class="glow" cx="12" cy="10" r="9" fill="none" stroke="var(--gold-soft)" stroke-width="1"/>
+        <circle cx="12" cy="10" r="6" fill="var(--gold)"/>
+        <rect x="9.5" y="16" width="5" height="2" rx="0.5" fill="var(--gold-soft)"/>
+        <rect x="10" y="18.5" width="4" height="1.5" rx="0.5" fill="var(--gold-soft)"/>
+      </svg>
+      Tips y notas
+    </h2>
     <ul class="tips">
       <li>La fiesta es para mayores de 12 años.</li>
       <li>Hay estacionamiento disponible en el lugar.</li>
@@ -388,7 +421,18 @@
 <section id="regalos">
   <div class="wrap panel">
     <span class="eyebrow">Un gesto opcional</span>
-    <h2 style="font-size:2.2rem;">Regalos</h2>
+    <h2 style="font-size:2.2rem;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+      <svg class="gift-icon" width="34" height="34" viewBox="0 0 24 24" aria-hidden="true">
+        <g class="gift-bounce">
+          <rect x="4" y="10" width="16" height="9" rx="1" fill="var(--gold)"/>
+          <rect x="4" y="7" width="16" height="3.5" rx="1" fill="var(--gold-soft)"/>
+          <rect x="11" y="7" width="2" height="12" fill="var(--bg-soft)"/>
+          <circle cx="9.5" cy="5.5" r="2" fill="var(--gold-soft)"/>
+          <circle cx="14.5" cy="5.5" r="2" fill="var(--gold-soft)"/>
+        </g>
+      </svg>
+      Regalos
+    </h2>
     <p style="margin-top:14px;">Si deseas regalarme algo más que tu hermosa presencia, un sobre será de gran ayuda para comenzar esta nueva etapa.</p>
     <div class="card" style="max-width:340px;margin:20px auto 0;">
       <div class="mark">✦</div>
