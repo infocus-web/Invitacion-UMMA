@@ -156,9 +156,45 @@
   footer .credit{margin-top:24px;color:var(--text-dim);font-size:.78rem;}
 
   .rsvp-note{font-size:.78rem;color:var(--text-dim);margin-top:16px;}
+
+  /* MUSIC GATE */
+  .music-gate{
+    position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:24px;background:linear-gradient(180deg,#808080 0%, #7a7a7a 100%);
+    transition:opacity .6s ease;
+  }
+  .music-gate.hide{opacity:0;pointer-events:none;}
+  .music-gate .gate-script{font-family:'Great Vibes',cursive;font-size:3.4rem;color:var(--gold-soft);line-height:1;}
+  .music-gate h2{font-size:1.3rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text);margin-top:6px;}
+  .music-gate p{color:var(--text-dim);margin:22px 0 8px;max-width:380px;font-size:.95rem;}
+  .gate-buttons{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:26px;}
+  .gate-buttons button{font-family:'Montserrat',sans-serif;}
+
+  /* MUSIC TOGGLE */
+  .music-toggle{
+    position:fixed;bottom:22px;right:22px;z-index:500;width:48px;height:48px;border-radius:50%;
+    background:var(--card);border:1px solid var(--line);color:var(--gold-soft);font-size:1.3rem;
+    cursor:pointer;display:none;align-items:center;justify-content:center;
+  }
 </style>
 </head>
 <body>
+
+<!-- MUSIC GATE -->
+<div class="music-gate" id="musicGate">
+  <div class="gate-script">Uma</div>
+  <h2>Mis XV Años</h2>
+  <p>¿Cómo querés vivir la invitación?</p>
+  <div class="gate-buttons">
+    <button type="button" class="btn solid" id="enterWithMusic">Entrar con música</button>
+    <button type="button" class="btn" id="enterNoMusic">Entrar sin música</button>
+  </div>
+</div>
+
+<audio id="bgMusic" loop preload="none">
+  <source src="audio/cancion.mp3" type="audio/mpeg">
+</audio>
+<button type="button" class="music-toggle" id="musicToggle" aria-label="Pausar musica">🎵</button>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -422,6 +458,37 @@
       const dx = e.changedTouches[0].clientX - startX;
       if(Math.abs(dx) > 40){ dx > 0 ? goTo(idx-1) : goTo(idx+1); }
       startX = null;
+    });
+  })();
+
+  // MUSIC GATE
+  (function(){
+    var gate = document.getElementById('musicGate');
+    var audio = document.getElementById('bgMusic');
+    var toggle = document.getElementById('musicToggle');
+    var btnWith = document.getElementById('enterWithMusic');
+    var btnWithout = document.getElementById('enterNoMusic');
+
+    document.body.style.overflow = 'hidden';
+
+    function closeGate(){
+      gate.classList.add('hide');
+      document.body.style.overflow = '';
+      setTimeout(function(){ gate.style.display = 'none'; }, 650);
+    }
+
+    btnWith.addEventListener('click', function(){
+      audio.play().catch(function(){});
+      toggle.style.display = 'flex';
+      closeGate();
+    });
+
+    btnWithout.addEventListener('click', function(){
+      closeGate();
+    });
+
+    toggle.addEventListener('click', function(){
+      if(audio.paused){ audio.play(); } else { audio.pause(); }
     });
   })();
 </script>
