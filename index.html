@@ -479,12 +479,22 @@
   tick();
   setInterval(tick, 1000);
 
-  // RSVP -> WhatsApp
+  // RSVP -> Google Sheet + WhatsApp
+  var RSVP_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxHKygu3gDUxitbeDYim4y6EZQ_QCniZ3g0OXO75jQhqIyUZq-KFqPZLjTJ9gkznXiwNw/exec';
   document.getElementById('rsvpForm').addEventListener('submit', function(e){
     e.preventDefault();
     const name = document.getElementById('rsvpName').value.trim();
     const qty = document.getElementById('rsvpQty').value.trim();
     const msg = document.getElementById('rsvpMsg').value.trim();
+
+    try{
+      const formData = new FormData();
+      formData.append('nombre', name);
+      formData.append('cantidad', qty);
+      formData.append('mensaje', msg);
+      fetch(RSVP_SHEET_URL, { method: 'POST', body: formData, mode: 'no-cors' });
+    }catch(err){ /* si falla el guardado en Sheets, igual continua a WhatsApp */ }
+
     let text = `¡Hola! Confirmo mi asistencia a los XV de Uma.%0ANombre: ${encodeURIComponent(name)}%0APersonas: ${encodeURIComponent(qty)}`;
     if(msg){ text += `%0AMensaje: ${encodeURIComponent(msg)}`; }
     window.open(`https://wa.me/5491130859902?text=${text}`, '_blank');
