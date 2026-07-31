@@ -10,15 +10,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #4d4d4d;
-    --bg-soft: #575757;
-    --card: #636363;
-    --gold: #8a5a9e;
+    --bg: #0a0a0a;
+    --bg-soft: #121212;
+    --card: #181818;
+    --gold: #e9e9ec;
     --gold-soft: #ffffff;
     --silver: #b8bcc4;
-    --text: #f5f5f7;
-    --text-dim: #c1694a;
+    --text: #ffffff;
+    --text-dim: #b3b3b8;
     --line: rgba(255,255,255,0.16);
+    --bokeh-img: url('images/bokeh.svg');
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -36,7 +37,7 @@
     color:var(--gold);margin-bottom:14px;display:inline-block;
   }
   section{padding:100px 24px;position:relative;}
-  .wrap{max-width:920px;margin:0 auto;text-align:center;}
+  .wrap{max-width:920px;margin:0 auto;text-align:center;position:relative;z-index:2;}
   .divider{width:60px;height:1px;background:var(--gold);margin:24px auto;opacity:.6;}
 
   /* PARALLAX */
@@ -45,7 +46,17 @@
     position:absolute;left:0;right:0;top:-15%;height:130%;
     background-size:cover;background-position:center;will-change:transform;z-index:0;
   }
-  .parallax .parallax-overlay{position:absolute;inset:0;background:rgba(77,77,77,.75);z-index:1;}
+  .parallax .parallax-overlay{position:absolute;inset:0;background:rgba(0,0,0,.72);z-index:1;}
+
+  /* BOKEH */
+  .bokeh-top, .bokeh-bottom{
+    position:absolute;left:0;right:0;height:200px;pointer-events:none;z-index:1;
+    background-image:var(--bokeh-img);background-repeat:no-repeat;background-size:cover;
+    mix-blend-mode:screen;opacity:.85;
+  }
+  .bokeh-top{top:0;background-position:top center;}
+  .bokeh-bottom{bottom:0;background-position:top center;transform:scaleY(-1);}
+  @media(max-width:700px){.bokeh-top,.bokeh-bottom{height:130px;}}
 
   /* HERO */
   .hero{
@@ -156,6 +167,7 @@
 
   footer{
     text-align:center;padding:70px 24px 40px;border-top:1px solid var(--line);background:var(--bg-soft);
+    position:relative;overflow:hidden;
   }
   footer .name-script{font-family:'Great Vibes',cursive;font-size:2.6rem;color:var(--gold-soft);}
   footer .sub{letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;color:var(--text-dim);margin-top:4px;}
@@ -168,9 +180,11 @@
   /* MUSIC GATE */
   .music-gate{
     position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:24px;background:linear-gradient(180deg,#4d4d4d 0%, #474747 100%);
-    transition:opacity .6s ease;
+    text-align:center;padding:24px;background:linear-gradient(180deg,#050505 0%, #0f0f0f 100%);
+    transition:opacity .6s ease;overflow:hidden;
   }
+  .music-gate .bokeh-top, .music-gate .bokeh-bottom{height:260px;}
+  .music-gate > *:not(.bokeh-top):not(.bokeh-bottom){position:relative;z-index:2;}
   .music-gate.hide{opacity:0;pointer-events:none;}
   .music-gate .gate-script{font-family:'Great Vibes',cursive;font-size:3.4rem;color:var(--gold-soft);line-height:1;}
   .music-gate h2{font-size:1.3rem;letter-spacing:.3em;text-transform:uppercase;color:var(--text);margin-top:6px;}
@@ -211,6 +225,8 @@
 
 <!-- MUSIC GATE -->
 <div class="music-gate" id="musicGate">
+  <div class="bokeh-top"></div>
+  <div class="bokeh-bottom"></div>
   <div class="gate-script">Uma</div>
   <h2>Mis XV Años</h2>
   <p>¿Cómo querés vivir la invitación?</p>
@@ -229,6 +245,8 @@
 <section class="hero parallax" id="top">
   <div class="parallax-img" style="background-image:url('images/uma-01.jpg')"></div>
   <div class="parallax-overlay"></div>
+  <div class="bokeh-top"></div>
+  <div class="bokeh-bottom"></div>
   <div class="hero-content">
     <div class="name-script">Uma</div>
     <h1>Mis XV Años</h1>
@@ -294,6 +312,7 @@
 
 <!-- RSVP -->
 <section id="rsvp" style="background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="bokeh-top"></div>
   <div class="wrap">
     <span class="eyebrow">Tu presencia es un regalo</span>
     <h2 style="font-size:2.2rem;">Confirmá tu asistencia</h2>
@@ -450,14 +469,17 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="name-script">Uma</div>
-  <div class="sub">Mis XV Años</div>
-  <nav>
-    <a href="#rsvp">Confirmar asistencia</a>
-    <a href="#musica">Sugerir canción</a>
-    <a href="#detalles">Agendar fiesta</a>
-  </nav>
-  <div class="credit">Hecho con ♥ para Uma</div>
+  <div class="bokeh-top"></div>
+  <div style="position:relative;z-index:2;">
+    <div class="name-script">Uma</div>
+    <div class="sub">Mis XV Años</div>
+    <nav>
+      <a href="#rsvp">Confirmar asistencia</a>
+      <a href="#musica">Sugerir canción</a>
+      <a href="#detalles">Agendar fiesta</a>
+    </nav>
+    <div class="credit">Hecho con ♥ para Uma</div>
+  </div>
 </footer>
 
 <script>
