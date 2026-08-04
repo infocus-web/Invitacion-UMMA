@@ -87,13 +87,16 @@
   .scroll-cue{margin-top:60px;color:var(--text-dim);font-size:.8rem;letter-spacing:.1em;}
 
   /* CARTA / REVEAL */
-  .carta{max-width:640px;margin:0 auto;text-align:left;}
+  .carta{max-width:640px;margin:0 auto;text-align:center;}
   .carta .verse{
     font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;line-height:1.7;
     color:var(--gold-soft);text-align:center;border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:30px;
   }
   .carta .verse-ref{display:block;margin-top:12px;font-style:normal;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);}
-  .carta p{color:var(--text-dim);font-size:1.02rem;line-height:1.9;margin-bottom:22px;}
+  .carta p{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    color:var(--text-dim);font-size:1.15rem;line-height:1.85;margin-bottom:22px;
+  }
   .reveal-block .verse, .reveal-block p{
     opacity:0;transform:translateY(16px);transition:opacity .9s ease, transform .9s ease;
   }
